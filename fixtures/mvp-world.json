@@ -1,0 +1,201 @@
+{
+  "schema_version": "mvp-1",
+  "world_id": "yantian-port-mvp",
+  "title": "盐田港交互视觉 MVP",
+  "start_scene_id": "scene_region",
+  "scenes": [
+    {
+      "id": "scene_region",
+      "title": "盐田港总览",
+      "scale_tier": "region",
+      "renderer": "map",
+      "camera": { "mode": "orthographic", "zoom": 1 },
+      "entities": [
+        {
+          "id": "entity_terminal_01",
+          "label": "集装箱码头",
+          "kind": "place",
+          "point": { "x": 0.70, "y": 0.35 },
+          "bbox": { "x": 0.62, "y": 0.25, "w": 0.16, "h": 0.20 },
+          "summary": "盐田港的集装箱装卸作业区域。",
+          "actions": [
+            { "type": "inspect" },
+            { "type": "enter", "target_scene_id": "scene_terminal", "transition": "dive_to_anchor" }
+          ]
+        },
+        {
+          "id": "entity_channel_01",
+          "label": "深水航道",
+          "kind": "waterway",
+          "point": { "x": 0.48, "y": 0.62 },
+          "bbox": { "x": 0.39, "y": 0.54, "w": 0.18, "h": 0.16 },
+          "summary": "连接港池和外海的深水通道。",
+          "actions": [
+            { "type": "inspect" },
+            { "type": "enter", "target_scene_id": "scene_channel", "transition": "dive_to_anchor" }
+          ]
+        },
+        {
+          "id": "entity_estuary_01",
+          "label": "盐田河口",
+          "kind": "ecology",
+          "point": { "x": 0.30, "y": 0.72 },
+          "bbox": { "x": 0.21, "y": 0.64, "w": 0.18, "h": 0.16 },
+          "summary": "河流、潮汐和红树林交汇的城市湿地。",
+          "actions": [
+            { "type": "inspect" },
+            { "type": "enter", "target_scene_id": "scene_estuary", "transition": "dive_to_anchor" }
+          ]
+        },
+        {
+          "id": "entity_ridge_01",
+          "label": "梧桐山脊",
+          "kind": "landscape",
+          "point": { "x": 0.22, "y": 0.27 },
+          "bbox": { "x": 0.14, "y": 0.18, "w": 0.16, "h": 0.16 },
+          "summary": "港区北侧的山海背景线。",
+          "actions": [{ "type": "inspect" }]
+        }
+      ]
+    },
+    {
+      "id": "scene_terminal",
+      "title": "集装箱码头",
+      "scale_tier": "place",
+      "renderer": "terminal",
+      "camera": { "mode": "orthographic", "zoom": 1 },
+      "entities": [
+        {
+          "id": "entity_crane_01",
+          "label": "自动化桥吊",
+          "kind": "machine",
+          "point": { "x": 0.64, "y": 0.31 },
+          "bbox": { "x": 0.54, "y": 0.18, "w": 0.20, "h": 0.25 },
+          "summary": "沿岸线重复排列的自动化装卸设备。",
+          "actions": [
+            { "type": "inspect" },
+            { "type": "enter", "target_scene_id": "scene_crane", "transition": "dive_to_anchor" }
+          ]
+        },
+        {
+          "id": "entity_stack_01",
+          "label": "集装箱堆场",
+          "kind": "system",
+          "point": { "x": 0.32, "y": 0.52 },
+          "bbox": { "x": 0.20, "y": 0.43, "w": 0.24, "h": 0.18 },
+          "summary": "按颜色和目的地分区的箱体网格。",
+          "actions": [{ "type": "inspect" }]
+        },
+        {
+          "id": "entity_vehicle_01",
+          "label": "无人集卡",
+          "kind": "vehicle",
+          "point": { "x": 0.72, "y": 0.68 },
+          "bbox": { "x": 0.64, "y": 0.61, "w": 0.16, "h": 0.14 },
+          "summary": "在堆场和岸线之间搬运集装箱的水平运输车。",
+          "actions": [{ "type": "inspect" }]
+        }
+      ]
+    },
+    {
+      "id": "scene_crane",
+      "title": "自动化桥吊",
+      "scale_tier": "object",
+      "renderer": "crane",
+      "camera": { "mode": "orthographic", "zoom": 1.1 },
+      "entities": [
+        {
+          "id": "entity_crane_boom_01",
+          "label": "桥吊前伸臂",
+          "kind": "machine",
+          "point": { "x": 0.60, "y": 0.22 },
+          "bbox": { "x": 0.34, "y": 0.12, "w": 0.40, "h": 0.18 },
+          "summary": "跨过船舶作业面的水平结构。",
+          "actions": [{ "type": "inspect" }]
+        },
+        {
+          "id": "entity_crane_trolley_01",
+          "label": "吊具小车",
+          "kind": "machine",
+          "point": { "x": 0.58, "y": 0.48 },
+          "bbox": { "x": 0.48, "y": 0.38, "w": 0.20, "h": 0.20 },
+          "summary": "沿桥吊前伸臂移动并连接集装箱的作业单元。",
+          "initial_state": { "running": false },
+          "actions": [{ "type": "toggle", "state_key": "running" }]
+        },
+        {
+          "id": "entity_crane_legs_01",
+          "label": "门架行走机构",
+          "kind": "machine",
+          "point": { "x": 0.32, "y": 0.70 },
+          "bbox": { "x": 0.20, "y": 0.61, "w": 0.25, "h": 0.18 },
+          "summary": "支撑桥吊并沿轨道移动的门架结构。",
+          "actions": [{ "type": "inspect" }]
+        }
+      ]
+    },
+    {
+      "id": "scene_channel",
+      "title": "深水航道",
+      "scale_tier": "place",
+      "renderer": "channel",
+      "camera": { "mode": "orthographic", "zoom": 1 },
+      "entities": [
+        {
+          "id": "entity_pilot_01",
+          "label": "引航船",
+          "kind": "vessel",
+          "point": { "x": 0.68, "y": 0.44 },
+          "bbox": { "x": 0.58, "y": 0.36, "w": 0.20, "h": 0.16 },
+          "summary": "引导大型船舶进出港的作业船。",
+          "actions": [{ "type": "inspect" }]
+        },
+        {
+          "id": "entity_buoy_01",
+          "label": "航道浮标",
+          "kind": "object",
+          "point": { "x": 0.40, "y": 0.60 },
+          "bbox": { "x": 0.32, "y": 0.52, "w": 0.16, "h": 0.16 },
+          "summary": "标记航道边界和安全方向的浮标。",
+          "actions": [{ "type": "inspect" }]
+        }
+      ]
+    },
+    {
+      "id": "scene_estuary",
+      "title": "盐田河口",
+      "scale_tier": "place",
+      "renderer": "estuary",
+      "camera": { "mode": "orthographic", "zoom": 1 },
+      "entities": [
+        {
+          "id": "entity_mangrove_01",
+          "label": "红树林缓冲带",
+          "kind": "ecology",
+          "point": { "x": 0.56, "y": 0.48 },
+          "bbox": { "x": 0.46, "y": 0.38, "w": 0.20, "h": 0.20 },
+          "summary": "减缓潮流并为候鸟提供栖息地的湿地植被。",
+          "actions": [{ "type": "inspect" }]
+        },
+        {
+          "id": "entity_walkway_01",
+          "label": "滨水步道",
+          "kind": "public",
+          "point": { "x": 0.32, "y": 0.68 },
+          "bbox": { "x": 0.22, "y": 0.60, "w": 0.20, "h": 0.16 },
+          "summary": "沿河口弯曲连接公共空间的慢行路径。",
+          "actions": [{ "type": "inspect" }]
+        },
+        {
+          "id": "entity_bird_01",
+          "label": "候鸟观察点",
+          "kind": "ecology",
+          "point": { "x": 0.76, "y": 0.28 },
+          "bbox": { "x": 0.68, "y": 0.20, "w": 0.16, "h": 0.16 },
+          "summary": "观察浅滩候鸟和芦苇带的视线入口。",
+          "actions": [{ "type": "inspect" }]
+        }
+      ]
+    }
+  ]
+}

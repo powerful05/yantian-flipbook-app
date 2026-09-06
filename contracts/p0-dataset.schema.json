@@ -1,0 +1,41 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://yantian-flipbook.local/schemas/p0-dataset.schema.json",
+  "title": "P0AcceptanceDataset",
+  "type": "array",
+  "minItems": 20,
+  "maxItems": 20,
+  "items": {
+    "type": "object",
+    "additionalProperties": false,
+    "required": ["id", "query", "expected_anchors"],
+    "properties": {
+      "id": { "type": "string", "pattern": "^scene_[0-9]{2}$" },
+      "query": { "type": "string", "minLength": 4, "maxLength": 100 },
+      "expected_anchors": {
+        "type": "array",
+        "minItems": 3,
+        "maxItems": 5,
+        "items": {
+          "type": "object",
+          "additionalProperties": false,
+          "required": ["id", "label", "kind", "point"],
+          "properties": {
+            "id": { "type": "string", "pattern": "^anchor_[a-z0-9_]+$" },
+            "label": { "type": "string", "minLength": 1, "maxLength": 40 },
+            "kind": { "type": "string", "minLength": 1, "maxLength": 30 },
+            "point": {
+              "type": "object",
+              "additionalProperties": false,
+              "required": ["x", "y"],
+              "properties": {
+                "x": { "type": "number", "minimum": 0, "maximum": 1 },
+                "y": { "type": "number", "minimum": 0, "maximum": 1 }
+              }
+            }
+          }
+        }
+      }
+    }
+  }
+}

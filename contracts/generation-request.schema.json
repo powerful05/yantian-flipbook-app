@@ -1,0 +1,78 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://yantian-flipbook.local/schemas/generation-request.schema.json",
+  "title": "GenerationRequest",
+  "type": "object",
+  "additionalProperties": false,
+  "required": [
+    "query",
+    "parent_node_id",
+    "anchor_id",
+    "point",
+    "mode",
+    "image_tier",
+    "video",
+    "idempotency_key"
+  ],
+  "properties": {
+    "query": { "type": "string", "minLength": 1, "maxLength": 500 },
+    "parent_node_id": {
+      "type": ["string", "null"],
+      "pattern": "^node_[a-zA-Z0-9_-]+$"
+    },
+    "anchor_id": {
+      "type": ["string", "null"],
+      "pattern": "^anchor_[a-zA-Z0-9_-]+$"
+    },
+    "point": {
+      "oneOf": [
+        { "type": "null" },
+        {
+          "type": "object",
+          "additionalProperties": false,
+          "required": ["x", "y"],
+          "properties": {
+            "x": { "type": "number", "minimum": 0, "maximum": 1 },
+            "y": { "type": "number", "minimum": 0, "maximum": 1 }
+          }
+        }
+      ]
+    },
+    "mode": { "enum": ["root", "tap", "edit", "ascend"] },
+    "image_tier": { "enum": ["fast", "balanced", "quality"] },
+    "video": { "enum": ["off", "async", "stream"] },
+    "idempotency_key": {
+      "type": "string",
+      "minLength": 8,
+      "maxLength": 128,
+      "pattern": "^[a-zA-Z0-9._:-]+$"
+    }
+  },
+  "allOf": [
+    {
+      "if": { "properties": { "mode": { "const": "root" } } },
+      "then": {
+        "properties": {
+          "parent_node_id": { "type": "null" },
+          "anchor_id": { "type": "null" },
+          "point": { "type": "null" }
+        }
+      }
+    },
+    {
+      "if": { "properties": { "mode": { "enum": ["tap", "edit", "ascend"] } } },
+      "then": {
+        "properties": { "parent_node_id": { "type": "string" } }
+      }
+    },
+    {
+      "if": { "properties": { "mode": { "const": "tap" } } },
+      "then": {
+        "anyOf": [
+          { "properties": { "anchor_id": { "type": "string" } } },
+          { "properties": { "point": { "type": "object" } } }
+        ]
+      }
+    }
+  ]
+}

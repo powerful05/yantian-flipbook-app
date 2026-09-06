@@ -1,0 +1,103 @@
+{
+  "pack_id": "refpack_yantian_v1",
+  "schema_version": "1.0",
+  "style_id": "yantian-editorial-etching-v1",
+  "style_version": 1,
+  "created_at": "2026-08-29",
+  "source_policy": "user-provided/generated reference material; verify usage rights before external distribution",
+  "model_usage": {
+    "max_images_per_request": 3,
+    "order_is_semantic": true,
+    "default_assets": [
+      "yantian-overview-port.png",
+      "yantian-itinerary-map.png",
+      "yantian-itinerary-panels.png"
+    ]
+  },
+  "assets": [
+    {
+      "asset_id": "ref_yantian_overview_port",
+      "file": "yantian-overview-port.png",
+      "original_filename": "ChatGPT Image 2026年8月29日 20_35_43.png",
+      "sha256": "cd9937b0b9040def739478393c05bfc5d654c5c8889ceb08cd41e5c2ddf8b768",
+      "bytes": 3273792,
+      "width": 1672,
+      "height": 941,
+      "role": "region-overview",
+      "tags": ["port", "isometric", "coastline", "overview", "blue-water", "callout-labels"],
+      "approved_for_model_reference": true
+    },
+    {
+      "asset_id": "ref_yantian_itinerary_map",
+      "file": "yantian-itinerary-map.png",
+      "original_filename": "ChatGPT Image 2026年8月29日 20_35_56 (1).png",
+      "sha256": "4c3575e01ae05bd713cbd18c590f1fbd311386adcdf7a55208017c844b384022",
+      "bytes": 3069393,
+      "width": 1024,
+      "height": 1536,
+      "role": "route-and-label-system",
+      "tags": ["route", "waypoints", "itinerary", "hand-lettering", "legend", "day-sections"],
+      "approved_for_model_reference": true
+    },
+    {
+      "asset_id": "ref_yantian_itinerary_panels",
+      "file": "yantian-itinerary-panels.png",
+      "original_filename": "ChatGPT Image 2026年8月29日 20_35_56 (2).png",
+      "sha256": "4ebe1780b6fcdccd28cd9433365489029698d4f34ab42905ba2e297ed61f47ec",
+      "bytes": 3137726,
+      "width": 1024,
+      "height": 1536,
+      "role": "place-and-object-detail",
+      "tags": ["place", "object", "panel-sequence", "coral-accent", "green-accent", "caption"],
+      "approved_for_model_reference": true
+    },
+    {
+      "asset_id": "ref_travel_panels_a",
+      "file": "travel-itinerary-panels-a.png",
+      "original_filename": "ChatGPT Image 2026年8月29日 20_36_09.png",
+      "sha256": "9b53a6a9c35a5950673d3c0ec54b731df2a10f03b0f1181a0fbeb3ae2bfd466f",
+      "bytes": 2461283,
+      "width": 1024,
+      "height": 1536,
+      "role": "sequence-layout",
+      "tags": ["timeline", "five-stops", "arrows", "thumbnail-panels", "paper"],
+      "approved_for_model_reference": true
+    },
+    {
+      "asset_id": "ref_travel_panels_b",
+      "file": "travel-itinerary-panels-b.png",
+      "original_filename": "ChatGPT Image 2026年8月29日 20_36_17.png",
+      "sha256": "c46f863a177de940c393eac9bf5f9e8d57bcf413c64b9dab4cd9fd75a3fa0ff6",
+      "bytes": 2704838,
+      "width": 1024,
+      "height": 1536,
+      "role": "sequence-layout",
+      "tags": ["timeline", "mountain", "day-sections", "directional-arrows", "tips"],
+      "approved_for_model_reference": true
+    },
+    {
+      "asset_id": "ref_travel_panels_c",
+      "file": "travel-itinerary-panels-c.png",
+      "original_filename": "ChatGPT Image 2026年8月29日 20_36_23.png",
+      "sha256": "0d955bc19152d5c2b811c6b58d0ed4729c9261c31462793b19d0f0c4a161573a",
+      "bytes": 2362902,
+      "width": 1024,
+      "height": 1536,
+      "role": "sequence-layout",
+      "tags": ["timeline", "city-map", "pink-accent", "green-accent", "callout-labels"],
+      "approved_for_model_reference": true
+    },
+    {
+      "asset_id": "ref_travel_panels_en",
+      "file": "travel-itinerary-panels-en.png",
+      "original_filename": "ChatGPT Image 2026年8月29日 20_36_31.png",
+      "sha256": "e25980ed38211c95f1afd80e962d901a178454da25cc0ea6898d2c6dd49c03f6",
+      "bytes": 2308588,
+      "width": 1086,
+      "height": 1448,
+      "role": "typography-and-sequence",
+      "tags": ["english-labels", "timeline", "map", "blue-ink", "hand-lettering"],
+      "approved_for_model_reference": true
+    }
+  ]
+}

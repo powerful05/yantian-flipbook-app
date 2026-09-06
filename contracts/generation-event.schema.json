@@ -1,0 +1,140 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://yantian-flipbook.local/schemas/generation-event.schema.json",
+  "title": "GenerationEvent",
+  "type": "object",
+  "additionalProperties": false,
+  "required": ["type", "sequence", "trace_id", "timestamp", "data"],
+  "properties": {
+    "type": { "enum": ["status", "anchor", "plan", "draft", "final", "motion", "error"] },
+    "sequence": { "type": "integer", "minimum": 1 },
+    "trace_id": { "type": "string", "pattern": "^trace_[a-zA-Z0-9_-]+$" },
+    "timestamp": { "type": "string", "minLength": 20 },
+    "data": { "type": "object" }
+  },
+  "allOf": [
+    {
+      "if": { "properties": { "type": { "const": "status" } } },
+      "then": {
+        "properties": {
+          "data": {
+            "type": "object",
+            "additionalProperties": false,
+            "required": ["stage"],
+            "properties": {
+              "stage": { "enum": ["received", "resolving", "planning", "rendering", "cached"] }
+            }
+          }
+        }
+      }
+    },
+    {
+      "if": { "properties": { "type": { "const": "anchor" } } },
+      "then": {
+        "properties": {
+          "data": {
+            "type": "object",
+            "additionalProperties": false,
+            "required": ["anchor"],
+            "properties": {
+              "anchor": {
+                "anyOf": [
+                  { "type": "null" },
+                  { "$ref": "https://yantian-flipbook.local/schemas/scene-node.schema.json#/$defs/semanticAnchor" }
+                ]
+              }
+            }
+          }
+        }
+      }
+    },
+    {
+      "if": { "properties": { "type": { "const": "plan" } } },
+      "then": {
+        "properties": {
+          "data": {
+            "type": "object",
+            "additionalProperties": false,
+            "required": ["title", "prompt", "scale_tier"],
+            "properties": {
+              "title": { "type": "string", "minLength": 1 },
+              "prompt": { "type": "string", "minLength": 1 },
+              "scale_tier": { "enum": ["region", "place", "object"] }
+            }
+          }
+        }
+      }
+    },
+    {
+      "if": { "properties": { "type": { "const": "draft" } } },
+      "then": {
+        "properties": {
+          "data": {
+            "type": "object",
+            "additionalProperties": false,
+            "required": ["asset"],
+            "properties": {
+              "asset": { "$ref": "https://yantian-flipbook.local/schemas/scene-node.schema.json#/$defs/renderAsset" }
+            }
+          }
+        }
+      }
+    },
+    {
+      "if": { "properties": { "type": { "const": "final" } } },
+      "then": {
+        "properties": {
+          "data": {
+            "type": "object",
+            "additionalProperties": false,
+            "required": ["node", "edge", "cached"],
+            "properties": {
+              "node": { "$ref": "https://yantian-flipbook.local/schemas/scene-node.schema.json" },
+              "edge": { "type": ["object", "null"] },
+              "cached": { "type": "boolean" }
+            }
+          }
+        }
+      }
+    },
+    {
+      "if": { "properties": { "type": { "const": "motion" } } },
+      "then": {
+        "properties": {
+          "data": {
+            "type": "object",
+            "additionalProperties": false,
+            "required": ["status"],
+            "properties": {
+              "status": { "enum": ["queued", "ready", "failed"] },
+              "node_id": { "type": "string", "pattern": "^node_[a-zA-Z0-9_-]+$" },
+              "profile": { "enum": ["transition", "ambient"] },
+              "task_id": { "type": "string", "minLength": 1 },
+              "asset": { "$ref": "https://yantian-flipbook.local/schemas/scene-node.schema.json#/$defs/renderAsset" },
+              "error_code": { "type": "string", "minLength": 1 },
+              "message": { "type": "string", "minLength": 1 },
+              "cached": { "type": "boolean" }
+            }
+          }
+        }
+      }
+    },
+    {
+      "if": { "properties": { "type": { "const": "error" } } },
+      "then": {
+        "properties": {
+          "data": {
+            "type": "object",
+            "additionalProperties": false,
+            "required": ["code", "message", "retryable"],
+            "properties": {
+              "code": { "type": "string", "minLength": 1 },
+              "message": { "type": "string", "minLength": 1 },
+              "retryable": { "type": "boolean" }
+            }
+          }
+        }
+      }
+    }
+  ]
+}

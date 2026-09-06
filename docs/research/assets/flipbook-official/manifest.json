@@ -1,0 +1,105 @@
+{
+  "capture_date": "2026-08-29",
+  "timezone": "Asia/Shanghai",
+  "source_page": "https://flipbook.page/",
+  "source_video": {
+    "url": "https://flipbook.page/ParisExampleVideo.mp4",
+    "duration_seconds": 14.4,
+    "width": 1716,
+    "height": 1080,
+    "frame_rate": 30,
+    "frames": 432,
+    "codec": "h264",
+    "note": "Public demonstration asset; the page states that it is pre-generated and cut for speed."
+  },
+  "browser_capture": {
+    "viewport_css": {"width": 851, "height": 790},
+    "device_pixel_ratio": 1.5,
+    "screenshot_png_dimensions": {"width": 836, "height": 776}
+  },
+  "assets": [
+    {
+      "file": "01-initial-public.png",
+      "kind": "browser-screenshot",
+      "sample_time_seconds": null,
+      "dimensions": [836, 776],
+      "sha256": "7b42de0ee49b81fe1f37999cf18f3f52f44876accfe139ac87adc778c6a95779"
+    },
+    {
+      "file": "04-demo-page-context.png",
+      "kind": "browser-screenshot",
+      "sample_time_seconds": null,
+      "dimensions": [836, 776],
+      "sha256": "742105322cd711fbe68e4f6bc6f8578a3f9978f6c31e2b78a7e21e6aa8c69349"
+    },
+    {
+      "file": "05-share-empty.png",
+      "kind": "browser-screenshot",
+      "sample_time_seconds": null,
+      "dimensions": [836, 776],
+      "sha256": "75cda133566fa68d4bfb1dfce3d1cd1ef30d1c3990603f696641fa96a079da9b"
+    },
+    {
+      "file": "demo-00s-overview-laptop.jpg",
+      "kind": "video-frame",
+      "sample_time_seconds": 0,
+      "dimensions": [1280, 806],
+      "sha256": "9c06a4af06fc799f61a12fd4cbaee766e46dc02bba6d8b535cb36f727837999f"
+    },
+    {
+      "file": "demo-02s-notre-dame-approach.jpg",
+      "kind": "video-frame",
+      "sample_time_seconds": 2,
+      "dimensions": [1280, 806],
+      "sha256": "b12358f91f1e20c01ea1a61e2fdd712d907844f562c143037f9be7a2aa4c9e96"
+    },
+    {
+      "file": "demo-04s-notre-dame-map.jpg",
+      "kind": "video-frame",
+      "sample_time_seconds": 4,
+      "dimensions": [1280, 806],
+      "sha256": "58cf5ebcd96fa6d61158dd70cf45230fcd390fdbb193ef65d2ea0cd1ba727b58"
+    },
+    {
+      "file": "demo-06s-interior-entry.jpg",
+      "kind": "video-frame",
+      "sample_time_seconds": 6,
+      "dimensions": [1280, 806],
+      "sha256": "9974a5e0f078466e97bd2111558c0e02bc5ef199a151e65565cab257e210328d"
+    },
+    {
+      "file": "demo-08s-interior-close.jpg",
+      "kind": "video-frame",
+      "sample_time_seconds": 8,
+      "dimensions": [1280, 806],
+      "sha256": "3c26579ee991dc3373dfea3156695547205dd2bc2d72ef4d2cbedc40c1a52f5c"
+    },
+    {
+      "file": "demo-10s-towers-ticket.jpg",
+      "kind": "video-frame",
+      "sample_time_seconds": 10,
+      "dimensions": [1280, 806],
+      "sha256": "b355894032842343bceec8451b00c73f87477e170dae971211fe6f1a25168481"
+    },
+    {
+      "file": "demo-12s-branch-map.jpg",
+      "kind": "video-frame",
+      "sample_time_seconds": 12,
+      "dimensions": [1280, 806],
+      "sha256": "1577bbd270c9501e0107dcdc40641c7c4e32e810cbbc5dc8a0a01e34cc52414a"
+    },
+    {
+      "file": "demo-14s-confirmed-itinerary.jpg",
+      "kind": "video-frame",
+      "sample_time_seconds": 14,
+      "dimensions": [1280, 806],
+      "sha256": "e6fbff9f2f5ac75e7b8cbbc91555f2b8f2d875a0a6b17e43f93dfd63dbefc7a0"
+    }
+  ],
+  "cadence_set": {
+    "pattern": "03-demo-t{01..14}s.jpg",
+    "sample_interval_seconds": 1,
+    "dimensions": [1000, 629],
+    "purpose": "Additional one-second visual inspection samples; the descriptive demo-* files above are the canonical review set."
+  }
+}

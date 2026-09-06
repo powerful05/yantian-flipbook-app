@@ -1,0 +1,12 @@
+.env
+.env.*
+!.env.example
+node_modules/
+generated-assets/
+
+# Local previews, runtime output, and verification artifacts.
+.tmp-preview/
+runtime-logs/
+*.log
+artifacts-test-*.png
+runtime-verification-*.mp4

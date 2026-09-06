@@ -1,0 +1,182 @@
+[
+  {
+    "id": "scene_01",
+    "query": "盐田港的潮汐、航线与城市边缘",
+    "expected_anchors": [
+      { "id": "anchor_s01_terminal", "label": "集装箱码头", "kind": "place", "point": { "x": 0.70, "y": 0.35 } },
+      { "id": "anchor_s01_estuary", "label": "盐田河口", "kind": "ecology", "point": { "x": 0.35, "y": 0.70 } },
+      { "id": "anchor_s01_ridge", "label": "梧桐山脊", "kind": "landscape", "point": { "x": 0.22, "y": 0.26 } }
+    ]
+  },
+  {
+    "id": "scene_02",
+    "query": "盐田港自动化集装箱码头如何运作",
+    "expected_anchors": [
+      { "id": "anchor_s02_crane", "label": "自动化桥吊", "kind": "machine", "point": { "x": 0.66, "y": 0.28 } },
+      { "id": "anchor_s02_stack", "label": "集装箱堆场", "kind": "system", "point": { "x": 0.42, "y": 0.58 } },
+      { "id": "anchor_s02_vehicle", "label": "无人集卡", "kind": "vehicle", "point": { "x": 0.76, "y": 0.70 } }
+    ]
+  },
+  {
+    "id": "scene_03",
+    "query": "盐田港深水航道与大型船舶引航",
+    "expected_anchors": [
+      { "id": "anchor_s03_channel", "label": "深水航道", "kind": "waterway", "point": { "x": 0.56, "y": 0.62 } },
+      { "id": "anchor_s03_pilot", "label": "引航船", "kind": "vessel", "point": { "x": 0.74, "y": 0.46 } },
+      { "id": "anchor_s03_buoy", "label": "航道浮标", "kind": "object", "point": { "x": 0.35, "y": 0.54 } }
+    ]
+  },
+  {
+    "id": "scene_04",
+    "query": "盐田河口红树林与潮间带生态",
+    "expected_anchors": [
+      { "id": "anchor_s04_mangrove", "label": "红树林缓冲带", "kind": "ecology", "point": { "x": 0.55, "y": 0.48 } },
+      { "id": "anchor_s04_mudflat", "label": "潮间带滩涂", "kind": "landform", "point": { "x": 0.72, "y": 0.68 } },
+      { "id": "anchor_s04_walkway", "label": "滨水步道", "kind": "public", "point": { "x": 0.28, "y": 0.66 } }
+    ]
+  },
+  {
+    "id": "scene_05",
+    "query": "梧桐山南坡集水区如何影响盐田",
+    "expected_anchors": [
+      { "id": "anchor_s05_ridge", "label": "山脊分水线", "kind": "landscape", "point": { "x": 0.46, "y": 0.22 } },
+      { "id": "anchor_s05_stream", "label": "山涧汇水", "kind": "water", "point": { "x": 0.58, "y": 0.52 } },
+      { "id": "anchor_s05_city", "label": "山海城市界面", "kind": "city", "point": { "x": 0.40, "y": 0.76 } }
+    ]
+  },
+  {
+    "id": "scene_06",
+    "query": "疏港铁路如何连接码头与内陆物流",
+    "expected_anchors": [
+      { "id": "anchor_s06_yard", "label": "铁路编组场", "kind": "infrastructure", "point": { "x": 0.48, "y": 0.50 } },
+      { "id": "anchor_s06_spur", "label": "港区支线", "kind": "infrastructure", "point": { "x": 0.68, "y": 0.66 } },
+      { "id": "anchor_s06_train", "label": "集装箱班列", "kind": "vehicle", "point": { "x": 0.30, "y": 0.38 } }
+    ]
+  },
+  {
+    "id": "scene_07",
+    "query": "盐田港区道路与货运车辆调度",
+    "expected_anchors": [
+      { "id": "anchor_s07_gate", "label": "港区闸口", "kind": "infrastructure", "point": { "x": 0.34, "y": 0.55 } },
+      { "id": "anchor_s07_truck", "label": "集装箱卡车", "kind": "vehicle", "point": { "x": 0.58, "y": 0.64 } },
+      { "id": "anchor_s07_ramp", "label": "疏港匝道", "kind": "road", "point": { "x": 0.74, "y": 0.34 } }
+    ]
+  },
+  {
+    "id": "scene_08",
+    "query": "港口冷链仓储与温控物流流程",
+    "expected_anchors": [
+      { "id": "anchor_s08_coldstore", "label": "冷链仓库", "kind": "building", "point": { "x": 0.40, "y": 0.42 } },
+      { "id": "anchor_s08_reefer", "label": "冷藏集装箱", "kind": "object", "point": { "x": 0.67, "y": 0.52 } },
+      { "id": "anchor_s08_power", "label": "温控供电排", "kind": "system", "point": { "x": 0.54, "y": 0.72 } }
+    ]
+  },
+  {
+    "id": "scene_09",
+    "query": "东港灯塔与防波堤的导航作用",
+    "expected_anchors": [
+      { "id": "anchor_s09_lighthouse", "label": "东港灯塔", "kind": "object", "point": { "x": 0.72, "y": 0.38 } },
+      { "id": "anchor_s09_breakwater", "label": "防波堤", "kind": "infrastructure", "point": { "x": 0.48, "y": 0.64 } },
+      { "id": "anchor_s09_wave", "label": "外海浪区", "kind": "water", "point": { "x": 0.82, "y": 0.72 } }
+    ]
+  },
+  {
+    "id": "scene_10",
+    "query": "大鹏湾内的港口航线与锚地",
+    "expected_anchors": [
+      { "id": "anchor_s10_route", "label": "进港航线", "kind": "waterway", "point": { "x": 0.58, "y": 0.48 } },
+      { "id": "anchor_s10_anchorage", "label": "船舶锚地", "kind": "place", "point": { "x": 0.74, "y": 0.64 } },
+      { "id": "anchor_s10_coast", "label": "大鹏湾岸线", "kind": "landscape", "point": { "x": 0.28, "y": 0.32 } }
+    ]
+  },
+  {
+    "id": "scene_11",
+    "query": "港口岸电系统如何减少靠港排放",
+    "expected_anchors": [
+      { "id": "anchor_s11_substation", "label": "岸电变电站", "kind": "energy", "point": { "x": 0.36, "y": 0.44 } },
+      { "id": "anchor_s11_cable", "label": "高压连接电缆", "kind": "system", "point": { "x": 0.58, "y": 0.58 } },
+      { "id": "anchor_s11_ship", "label": "靠港船舶", "kind": "vessel", "point": { "x": 0.76, "y": 0.42 } }
+    ]
+  },
+  {
+    "id": "scene_12",
+    "query": "大型集装箱船的靠泊与系缆过程",
+    "expected_anchors": [
+      { "id": "anchor_s12_berth", "label": "深水泊位", "kind": "place", "point": { "x": 0.46, "y": 0.56 } },
+      { "id": "anchor_s12_tug", "label": "协作拖轮", "kind": "vessel", "point": { "x": 0.68, "y": 0.70 } },
+      { "id": "anchor_s12_mooring", "label": "系缆设施", "kind": "system", "point": { "x": 0.30, "y": 0.38 } }
+    ]
+  },
+  {
+    "id": "scene_13",
+    "query": "岸边桥吊的机械结构与装卸动作",
+    "expected_anchors": [
+      { "id": "anchor_s13_boom", "label": "桥吊前伸臂", "kind": "machine", "point": { "x": 0.62, "y": 0.28 } },
+      { "id": "anchor_s13_trolley", "label": "吊具小车", "kind": "machine", "point": { "x": 0.50, "y": 0.46 } },
+      { "id": "anchor_s13_legs", "label": "门架行走机构", "kind": "machine", "point": { "x": 0.40, "y": 0.72 } }
+    ]
+  },
+  {
+    "id": "scene_14",
+    "query": "集装箱堆场如何完成分区与调度",
+    "expected_anchors": [
+      { "id": "anchor_s14_block", "label": "堆场箱区", "kind": "system", "point": { "x": 0.45, "y": 0.48 } },
+      { "id": "anchor_s14_rmg", "label": "轨道吊", "kind": "machine", "point": { "x": 0.68, "y": 0.34 } },
+      { "id": "anchor_s14_lane", "label": "水平运输车道", "kind": "road", "point": { "x": 0.56, "y": 0.72 } }
+    ]
+  },
+  {
+    "id": "scene_15",
+    "query": "港口海关查验区的作业流程",
+    "expected_anchors": [
+      { "id": "anchor_s15_scanner", "label": "集装箱扫描设备", "kind": "machine", "point": { "x": 0.42, "y": 0.42 } },
+      { "id": "anchor_s15_bay", "label": "开箱查验位", "kind": "place", "point": { "x": 0.67, "y": 0.58 } },
+      { "id": "anchor_s15_control", "label": "查验控制室", "kind": "building", "point": { "x": 0.30, "y": 0.70 } }
+    ]
+  },
+  {
+    "id": "scene_16",
+    "query": "盐田港背后的社区与港城生活",
+    "expected_anchors": [
+      { "id": "anchor_s16_housing", "label": "山海社区", "kind": "city", "point": { "x": 0.38, "y": 0.42 } },
+      { "id": "anchor_s16_school", "label": "社区学校", "kind": "public", "point": { "x": 0.58, "y": 0.56 } },
+      { "id": "anchor_s16_portedge", "label": "港城分界线", "kind": "landscape", "point": { "x": 0.72, "y": 0.68 } }
+    ]
+  },
+  {
+    "id": "scene_17",
+    "query": "盐田滨水步道连接了哪些公共空间",
+    "expected_anchors": [
+      { "id": "anchor_s17_boardwalk", "label": "滨水栈道", "kind": "public", "point": { "x": 0.48, "y": 0.64 } },
+      { "id": "anchor_s17_square", "label": "海边广场", "kind": "public", "point": { "x": 0.30, "y": 0.42 } },
+      { "id": "anchor_s17_viewpoint", "label": "观景平台", "kind": "place", "point": { "x": 0.72, "y": 0.38 } }
+    ]
+  },
+  {
+    "id": "scene_18",
+    "query": "盐田河口候鸟观察点与迁徙季节",
+    "expected_anchors": [
+      { "id": "anchor_s18_hide", "label": "观鸟屋", "kind": "building", "point": { "x": 0.32, "y": 0.50 } },
+      { "id": "anchor_s18_shoal", "label": "浅滩觅食区", "kind": "ecology", "point": { "x": 0.60, "y": 0.62 } },
+      { "id": "anchor_s18_reeds", "label": "芦苇隐蔽带", "kind": "ecology", "point": { "x": 0.74, "y": 0.34 } }
+    ]
+  },
+  {
+    "id": "scene_19",
+    "query": "台风来临时盐田港如何进行防护",
+    "expected_anchors": [
+      { "id": "anchor_s19_mooring", "label": "加固系泊区", "kind": "system", "point": { "x": 0.38, "y": 0.62 } },
+      { "id": "anchor_s19_cranepark", "label": "桥吊防风锚定", "kind": "machine", "point": { "x": 0.62, "y": 0.34 } },
+      { "id": "anchor_s19_shelter", "label": "船舶避风水域", "kind": "water", "point": { "x": 0.76, "y": 0.68 } }
+    ]
+  },
+  {
+    "id": "scene_20",
+    "query": "盐田近岸海洋生态与港口共存关系",
+    "expected_anchors": [
+      { "id": "anchor_s20_reef", "label": "近岸礁体", "kind": "ecology", "point": { "x": 0.34, "y": 0.66 } },
+      { "id": "anchor_s20_outfall", "label": "水质监测点", "kind": "system", "point": { "x": 0.58, "y": 0.48 } },
+      { "id": "anchor_s20_shipping", "label": "船舶活动带", "kind": "waterway", "point": { "x": 0.76, "y": 0.36 } }
+    ]
+  }
+]

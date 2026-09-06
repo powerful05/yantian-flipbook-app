@@ -1,0 +1,185 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://yantian-flipbook.local/schemas/scene-node.schema.json",
+  "title": "SceneNode",
+  "type": "object",
+  "additionalProperties": false,
+  "required": [
+    "id",
+    "session_id",
+    "parent_id",
+    "relation",
+    "title",
+    "query",
+    "scale_tier",
+    "style_receipt",
+    "render",
+    "anchors",
+    "model_receipts",
+    "created_at"
+  ],
+  "properties": {
+    "id": { "type": "string", "pattern": "^node_[a-zA-Z0-9_-]+$" },
+    "session_id": { "type": "string", "pattern": "^sess_[a-zA-Z0-9_-]+$" },
+    "parent_id": {
+      "type": ["string", "null"],
+      "pattern": "^node_[a-zA-Z0-9_-]+$"
+    },
+    "relation": { "enum": ["root", "tap", "edit", "ascend"] },
+    "title": { "type": "string", "minLength": 1, "maxLength": 120 },
+    "query": { "type": "string", "minLength": 1, "maxLength": 500 },
+    "scale_tier": { "enum": ["region", "place", "object"] },
+    "place_context": { "$ref": "#/$defs/placeContext" },
+    "style_receipt": { "$ref": "#/$defs/styleReceipt" },
+    "render": { "$ref": "#/$defs/renderPair" },
+    "anchors": {
+      "type": "array",
+      "items": { "$ref": "#/$defs/semanticAnchor" }
+    },
+    "model_receipts": {
+      "type": "array",
+      "items": { "$ref": "#/$defs/modelReceipt" }
+    },
+    "created_at": { "type": "string", "minLength": 20 }
+  },
+  "$defs": {
+    "point": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": ["x", "y"],
+      "properties": {
+        "x": { "type": "number", "minimum": 0, "maximum": 1 },
+        "y": { "type": "number", "minimum": 0, "maximum": 1 }
+      }
+    },
+    "bbox": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": ["x", "y", "w", "h"],
+      "properties": {
+        "x": { "type": "number", "minimum": 0, "maximum": 1 },
+        "y": { "type": "number", "minimum": 0, "maximum": 1 },
+        "w": { "type": "number", "exclusiveMinimum": 0, "maximum": 1 },
+        "h": { "type": "number", "exclusiveMinimum": 0, "maximum": 1 }
+      }
+    },
+    "placeContext": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": ["canonical_name", "kind", "administrative_area", "verified_facts", "source_urls", "visual_focus", "excluded_visuals", "coordinate_status"],
+      "properties": {
+        "canonical_name": { "type": "string", "minLength": 1, "maxLength": 120 },
+        "kind": { "type": "string", "minLength": 1, "maxLength": 60 },
+        "administrative_area": { "type": "string", "minLength": 1, "maxLength": 160 },
+        "verified_facts": { "type": "array", "items": { "type": "string", "minLength": 1 }, "minItems": 1, "maxItems": 8 },
+        "source_urls": { "type": "array", "items": { "type": "string", "pattern": "^https://" }, "minItems": 1, "maxItems": 8 },
+        "visual_focus": { "type": "string", "minLength": 1, "maxLength": 500 },
+        "excluded_visuals": { "type": "array", "items": { "type": "string", "minLength": 1 }, "maxItems": 20 },
+        "coordinate_status": { "enum": ["verified", "not_verified_from_official_source"] }
+      }
+    },
+    "semanticAnchor": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": [
+        "id",
+        "label",
+        "kind",
+        "point",
+        "bbox",
+        "summary",
+        "facts",
+        "citations",
+        "confidence"
+      ],
+      "properties": {
+        "id": { "type": "string", "pattern": "^anchor_[a-zA-Z0-9_-]+$" },
+        "label": { "type": "string", "minLength": 1, "maxLength": 80 },
+        "kind": { "type": "string", "minLength": 1, "maxLength": 40 },
+        "point": { "$ref": "#/$defs/point" },
+        "bbox": { "$ref": "#/$defs/bbox" },
+        "summary": { "type": "string", "minLength": 1, "maxLength": 500 },
+        "facts": { "type": "array", "items": { "type": "string" } },
+        "citations": { "type": "array", "items": { "type": "string" } },
+        "confidence": { "type": "number", "minimum": 0, "maximum": 1 }
+      }
+    },
+    "renderAsset": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": ["url", "width", "height", "mime_type", "sha256"],
+      "properties": {
+        "url": { "type": "string", "minLength": 1 },
+        "width": { "type": "integer", "minimum": 1 },
+        "height": { "type": "integer", "minimum": 1 },
+        "mime_type": { "type": "string", "minLength": 3 },
+        "sha256": { "type": "string", "pattern": "^[a-f0-9]{64}$" },
+        "duration_ms": { "type": "integer", "minimum": 1 }
+      }
+    },
+    "renderPair": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": ["draft", "final"],
+      "properties": {
+        "draft": { "$ref": "#/$defs/renderAsset" },
+        "final": { "$ref": "#/$defs/renderAsset" },
+        "motion": { "$ref": "#/$defs/motionState" }
+      }
+    },
+    "styleReceipt": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": [
+        "schema_version",
+        "style_id",
+        "style_version",
+        "reference_pack_id",
+        "prompt_template_version",
+        "seed"
+      ],
+      "properties": {
+        "schema_version": { "const": "1.0" },
+        "style_id": { "type": "string", "minLength": 1 },
+        "style_version": { "type": "integer", "minimum": 1 },
+        "reference_pack_id": { "type": "string", "minLength": 1 },
+        "prompt_template_version": { "type": "string", "minLength": 1 },
+        "seed": { "type": "integer", "minimum": 0, "maximum": 2147483647 }
+      }
+    },
+    "modelReceipt": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": ["provider", "model", "stage", "latency_ms", "cost_cny", "mock"],
+      "properties": {
+        "provider": { "type": "string", "minLength": 1 },
+        "model": { "type": "string", "minLength": 1 },
+        "stage": { "type": "string", "minLength": 1 },
+        "latency_ms": { "type": "number", "minimum": 0 },
+        "cost_cny": { "type": "number", "minimum": 0 },
+        "mock": { "type": "boolean" },
+        "error_code": { "type": "string", "minLength": 1 }
+      }
+    },
+    "motionState": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": ["status", "profile"],
+      "properties": {
+        "status": { "enum": ["queued", "ready", "failed"] },
+        "profile": { "enum": ["transition", "ambient"] },
+        "model": { "type": "string", "minLength": 1 },
+        "task_id": { "type": ["string", "null"] },
+        "asset": {
+          "anyOf": [
+            { "$ref": "#/$defs/renderAsset" },
+            { "type": "null" }
+          ]
+        },
+        "error_code": { "type": "string", "minLength": 1 },
+        "message": { "type": "string", "minLength": 1 },
+        "cached": { "type": "boolean" }
+      }
+    }
+  }
+}

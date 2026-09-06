@@ -1,0 +1,30 @@
+<!doctype html>
+<html lang="zh-CN">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta name="theme-color" content="#f2e7d4" />
+    <title>盐田 Flipbook</title>
+    <link rel="stylesheet" href="./styles.css" />
+  </head>
+  <body>
+    <main class="flipbook" aria-label="盐田大梅沙分层视觉导览">
+      <header class="topbar">
+        <a class="brand" href="./" aria-label="回到盐田总览"><span></span>盐田 FLIPBOOK</a>
+        <nav class="breadcrumbs" id="breadcrumbs" aria-label="当前浏览路径"></nav>
+        <div class="topbar-meta" id="mediaStatus" aria-live="polite">加载本地媒体</div>
+      </header>
+      <section class="viewer" id="viewer" aria-label="本地 Flipbook 媒体舞台">
+        <div class="media-stack" id="mediaStack"></div>
+        <div class="viewer-wash" aria-hidden="true"></div>
+        <div class="hotspot-layer" id="hotspotLayer" aria-label="可点击地标"></div>
+        <div class="viewer-header"><span id="levelLabel">L0 / 总览</span><span id="mediaBadge">动态视频</span></div>
+        <div class="viewer-copy"><p id="sceneEyebrow">盐田视觉总览</p><h1 id="sceneTitle">盐田</h1><p id="sceneDescription">点击大梅沙，沿着海岸进入下一层。</p></div>
+        <button class="back-button" id="backButton" type="button" aria-label="返回上一级" title="返回上一级" hidden><span aria-hidden="true">←</span><span>返回上一级</span></button>
+        <p class="motion-notice" id="motionNotice" role="status" aria-live="polite" hidden></p>
+      </section>
+      <footer class="footerbar"><span id="footerHint">点击标记继续深入</span><span id="transitionStatus" aria-live="polite">本地素材 / 就绪</span></footer>
+    </main>
+    <script type="module" src="./app.js"></script>
+  </body>
+</html>
